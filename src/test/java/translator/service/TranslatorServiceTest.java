@@ -19,7 +19,8 @@ public class TranslatorServiceTest {
   @Autowired
   TranslatorService translatorService;
 
-  @Test
+  // specifies the expected exception throwed from the above java class
+  @Test(expected = RuntimeException.class)
   public void translateTest() {
     TranslatedText translatedText = translatorService.translate("en", "es", "This is a test of translation service");
     assertEquals("I don't know how to translate from en to es the text 'This is a test of translation service'", translatedText.getTranslation());
